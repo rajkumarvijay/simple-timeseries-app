@@ -32,8 +32,6 @@ docker run --rm -p 8080:8080 <your-username>/simple-timeservice:latest
 
 # Test with curl
 curl -s http://localhost:8080/ | jq .
-# example response:
-# {"timestamp":"2025-12-05T12:34:56.789012+05:30","ip":"127.0.0.1"}
 
 docker login
 # enter username and password
