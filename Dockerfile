@@ -31,7 +31,8 @@ RUN chown -R ${USER}:${USER} /app
 # Switch to non-root user
 USER ${USER}
 
-# Expose port and run with gunicorn
+# Expose port
 EXPOSE 8080
-# Use gunicorn to serve Flask app: module:app (app is Flask instance in app.py)
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "--workers", "2", "app:app"]
+
+# ⭐ MOST COMMON universal CMD — run the Python app directly
+CMD ["python", "app.py"]
