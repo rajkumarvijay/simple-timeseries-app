@@ -20,7 +20,7 @@ variable "private_subnet_cidrs" {
 
 variable "container_image" {
   type    = string
-  default = "nginx:latest" # replace with your image (e.g., youruser/simple-timeservice:latest)
+  default = "vijayrajkumar/simple-timeseries:latest" # replace with your image (e.g., youruser/simple-timeservice:latest)
 }
 
 variable "container_port" {
