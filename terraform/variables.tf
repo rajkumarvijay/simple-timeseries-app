@@ -9,10 +9,20 @@ variable "vpc_cidr" {
 }
 
 variable "public_subnet_cidrs" {
-  type    = list(string)
-  default = ["10.0.1.0/24", "10.0.2.0/24"]
+  type    = map(object({
+     cidr_block = string 
+     availability_zone = string 
+}))
+  default = {
+     "public-a" = {
+         cidr_block  = "10.0.1.0/24"
+         availability_zone = "us-east-1"
+     } 
+     "public-b" = {
+         cidr_block = "10.0.2.0/24"
+         availability_zone = "us-east-1"
+     }
 }
-
 variable "private_subnet_cidrs" {
   type    = list(string)
   default = ["10.0.11.0/24", "10.0.12.0/24"]
@@ -20,7 +30,7 @@ variable "private_subnet_cidrs" {
 
 variable "container_image" {
   type    = string
-  default = "vijayrajkumar/simple-timeseries:latest" # replace with your image (e.g., youruser/simple-timeservice:latest)
+  default = "vijayrajkumar/simple-timeseries: latest" # replace with your image (e.g., youruser/simple-timeservice:latest)
 }
 
 variable "container_port" {
