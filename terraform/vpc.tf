@@ -49,7 +49,7 @@ resource "aws_route_table_association" "public_assoc" {
 # NOTE: This creates one NAT GW per public subnet.
 resource "aws_eip" "nat" {
   for_each = aws_subnet.public
-  vpc = true
+  domain = "vpc"
   tags = { Name = "nat-eip-${each.value.cidr_block}" }
 }
 
