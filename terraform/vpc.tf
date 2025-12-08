@@ -12,12 +12,12 @@ resource "aws_internet_gateway" "igw" {
 
 # Public subnets (2 AZs)
 resource "aws_subnet" "public" {
-  for_each = toset(var.public_subnet_cidrs)
-  vpc_id            = aws_vpc.this.id
-  cidr_block        = each.value
+  for_each = var.public_subnets.cidr 
+  vpc_id            = aws_vpc.this.id 
+  cidr_block        = each.value.cidr_block
   map_public_ip_on_launch = true
-  availability_zone = data.aws_availability_zones.available.names[lookup(keys(aws_subnet.public), 0)]
-  tags = { Name = "public-${each.value}" }
+  availability_zone = eachvalue.availability_zone
+  tags = { Name = each.key }
 }
 
 # Private subnets (2 AZs)
