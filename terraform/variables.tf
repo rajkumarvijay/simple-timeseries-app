@@ -17,11 +17,11 @@ variable "public_subnets" {
   default = {
     "public-a" = {
       cidr_block        = "10.0.1.0/24"
-      availability_zone = "ap-south-1a"
+      availability_zone = "us-east-1a"
     }
     "public-b" = {
       cidr_block        = "10.0.2.0/24"
-      availability_zone = "ap-south-1b"
+      availability_zone = "us-east-1b"
     }
   }
 }
