@@ -20,7 +20,7 @@ resource "aws_lb_listener" "listener" {
 }
 
 resource "aws_lb_listener_rule" "api_path" {
-  listener_arn = aws_lb_listener.http.arn
+  listener_arn = aws_lb_listener.listener.arn
   priority     = 100
 
   action {
