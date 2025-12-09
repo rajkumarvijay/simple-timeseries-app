@@ -1,7 +1,7 @@
 resource "aws_lb" "alb" {
   name               = "simple-timeservice-alb"
   load_balancer_type = "application"
-  subnets            = local.alb_subnet_ids
+  subnets            = local.public_subnet_ids
   security_groups    = [aws_security_group.alb_sg.id]
   idle_timeout       = 60
   enable_deletion_protection = false
