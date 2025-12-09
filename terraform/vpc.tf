@@ -12,10 +12,6 @@ resource "aws_internet_gateway" "igw" {
 
 # Public subnets (2 AZs)
 resource "aws_subnet" "public" {
-  for_each = {
-    public-a = { cidr_block = "10.0.1.0/24", az = "us-east-1a" }
-    public-b = { cidr_block = "10.0.2.0/24", az = "us-east-1b" }
-  } 
   vpc_id            = aws_vpc.this.id 
   cidr_block        = each.value.cidr_block
   map_public_ip_on_launch = true
