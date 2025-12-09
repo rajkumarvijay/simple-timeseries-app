@@ -25,7 +25,7 @@ variable "container_image" {
 
 variable "container_port" {
   type    = number
-  default = 80
+  default = 8080
 }
 
 variable "desired_count" {
